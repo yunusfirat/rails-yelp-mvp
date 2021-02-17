@@ -1,23 +1,37 @@
 <%= form_for(@restaurant) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-
   <div class="form-group">
     <%= f.label :address %>
-    <%= f.text_area :address, class: 'form-control' %>
+    <%= f.text_area :address, class: "form-control" %>
   </div>
-
   <div class="form-group">
     <%= f.label :phone_number %>
-    <%= f.text_area :phone_number, class: 'form-control' %>
+    <%= f.text_area :phone_number, class: "form-control" %>
   </div>
-
   <div class="form-group">
     <%= f.label :category %>
-    <%= f.text_area :category, class: 'form-control' %>
+    <%= f.text_area :category, class: "form-control" %>
   </div>
-
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
+<div class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <small>
+        <% count = 0 %>
+        <% 5.times do %>
+          <% if review.rating > count %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% count += 1 %>
+        <% end %>
+      </small>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</div>
