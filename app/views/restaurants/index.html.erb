@@ -5,3 +5,7 @@
     <li> <%= restaurant.name restaurant.address restaurant.phone_number restaurant.category %>  </li>
   <% end %>
 </ul>
+
+<%= link_to new_restaurant_path do %>
+  <i class="fa fa-plus"></i> Add a new restaurant
+<% end %>

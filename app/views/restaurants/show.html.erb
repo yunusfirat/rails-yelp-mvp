@@ -1,0 +1,9 @@
+<h1><%= @restaurant.name %></h1>
+<p class="well"><%= @restaurant.address %></p>
+<p class="well"><%= @restaurant.phone_number %></p>
+<p class="well"><%= @restaurant.category %></p>
+
+<hr>
+<%= link_to restaurants_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>
